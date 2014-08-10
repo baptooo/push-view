@@ -1,0 +1,14 @@
+@mixin breakpoint($name) {
+  $bp: map-get($breakpoints, $name);
+
+    @media screen and (min-width: nth($bp, 1)) and (max-width: nth($bp, 2)) {
+      @if(variable_exists('&')) {
+        & {
+          @content;
+        }
+      } @else {
+        @content;
+    }
+
+  }
+}

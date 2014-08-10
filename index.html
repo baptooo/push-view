@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css"/>
+    <link rel="stylesheet" href="src/css/push-view.css"/>
+    <title>Mobile Push module</title>
+</head>
+<body>
+    <div class="push-view">
+        <div class="push-view__back">
+            <a href="">< Back</a>
+        </div>
+        <h1>Ceci est la push view</h1>
+        <img src="//lorempixel.com/150/150" alt=""/>
+        <ul>
+            <li>Item de liste</li>
+            <li>Item de liste</li>
+            <li>Item de liste</li>
+            <li>Item de liste</li>
+            <li>Item de liste</li>
+        </ul>
+        <div style="height: 500px;">Du scroll pour rien encore...</div>
+        <img src="//lorempixel.com/200/200" alt=""/>
+    </div>
+    <div id="content" style="height:2000px">
+        <nav>
+            <ul>
+                <li><a href="#">Nav 1</a></li>
+                <li><a href="#">Nav 2</a></li>
+                <li><a href="#">Nav 3</a></li>
+            </ul>
+        </nav>
+    </div>
+    <p>Du scroll pour rien...</p>
+    <nav>
+        <ul>
+            <li><a href="#">Footer Nav 1</a></li>
+        </ul>
+    </nav>
+
+    <script src="src/js/push-view.js"></script>
+    <script>
+        var links = document.querySelectorAll('nav a');
+        $pushView.init();
+        Array.prototype.forEach.call(links, function(elt) {
+            elt.addEventListener('click', function(evt) {
+                evt.preventDefault();
+                $pushView.open();
+            });
+        });
+        document.querySelector('.push-view__back a').addEventListener('click', function(evt) {
+            evt.preventDefault();
+            $pushView.close();
+        });
+    </script>
+</body>
+</html>
