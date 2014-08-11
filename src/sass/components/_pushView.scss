@@ -5,7 +5,10 @@
   .#{$pushViewPrefix} {
     &-container {
       &--animating {
-        @include transition(all .5s ease-in-out);
+        @each $vendor in -webkit -moz -msie -o {
+          #{$vendor}-transition: #{$vendor}-transform .5s ease-in-out;
+        }
+        transition: transform .5s ease-in-out;
       }
 
       &--opened {
@@ -23,10 +26,10 @@
       }
     }
     &-view {
-      @include transform(translate3d(100%, 0, 0));
+//      @include transform(translate3d(100%, 0, 0));
       display: none;
       position: absolute;
-      top: 0; left: 0;
+      top: 0; left: 100%;
       width: 100%;
       height: 100%;
       overflow-x: hidden;
