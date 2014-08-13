@@ -5,20 +5,18 @@ module.exports = function(grunt) {
         sass: {
             dev: {
                 options: {
-                    sourcemap: true,
-                    loadPath: ['bower_components/', 'src/']
+                    sourcemap: true
                 },
                 files: {
-                    'build/push-view.css': 'src/main.scss'
+                    'build/push-view.css': 'src/pushView.scss'
                 }
             },
             dist: {
                 options: {
-                    style: 'compressed',
-                    loadPath: ['bower_components/', 'src/']
+                    style: 'compressed'
                 },
                 files: {
-                    'dist/push-view.min.css': 'src/main.scss'
+                    'dist/push-view.min.css': 'src/pushView.scss'
                 }
             }
         },
