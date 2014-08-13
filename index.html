@@ -43,15 +43,13 @@
     <script src="build/push-view.js"></script>
     <script>
         var links = document.querySelectorAll('nav a');
-        $pushView.init({
-            callback: function(opened) {
-                console.log(opened);
-            }
-        });
+        $pushView.init();
         Array.prototype.forEach.call(links, function(elt) {
             elt.addEventListener('click', function(evt) {
                 evt.preventDefault();
-                $pushView.open();
+                $pushView.open(function(){
+                    console.log('callback: opened');
+                });
             });
         });
         document.querySelector('.push-view__back a').addEventListener('click', function(evt) {

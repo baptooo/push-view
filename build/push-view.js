@@ -33,16 +33,13 @@ function transitionEndEventName () {
                 } else {
                     canPushState = pushState;
                 }
-                if(config.callback) {
-                    cb = config.callback;
-                }
             }
 
             b.classList.add(c + '-container');
             b.addEventListener(transitionEndEventName(), function() {
                 b.classList.remove(c + '-container--animating');
                 if(cb) {
-                    cb(opened);
+                    cb();
                 }
             });
 
@@ -52,7 +49,8 @@ function transitionEndEventName () {
                 };
             }
         },
-        open: function() {
+        open: function(callback) {
+            cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.add(c + '-container--opened');
             if(canPushState) {
@@ -61,7 +59,8 @@ function transitionEndEventName () {
 
             opened = true;
         },
-        close: function() {
+        close: function(callback) {
+            cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.remove(c + '-container--opened');
             if(canPushState && history.state === s) {
