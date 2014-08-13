@@ -9,7 +9,6 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    max-width: 1024px;
     z-index: -1; }
   .push-container--animating .push-view, .push-container--animating .push-view--custom, .push-container--opened .push-view, .push-container--opened .push-view--custom {
     display: block; }

@@ -22,7 +22,6 @@ $pushViewMaxWidth: if(variable_exists('pushViewMaxWidth'), $pushViewMaxWidth, 76
         position: fixed;
         height: 100%;
         width: 100%;
-        max-width: $pushViewMaxWidth;
         z-index: -1;
       }
 
