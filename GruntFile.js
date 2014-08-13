@@ -9,7 +9,35 @@ module.exports = function(grunt) {
                     loadPath: ['bower_components/', 'src/']
                 },
                 files: {
-                    'src/css/push-view.css': 'src/main.scss'
+                    'build/push-view.css': 'src/main.scss'
+                }
+            },
+            dist: {
+                options: {
+                    style: 'compressed',
+                    loadPath: ['bower_components/', 'src/']
+                },
+                files: {
+                    'dist/push-view.min.css': 'src/main.scss'
+                }
+            }
+        },
+        concat: {
+            dev: {
+                src: [
+                    'src/js/transitionEnd.js',
+                    'src/js/push-view.js'
+                ],
+                dest: 'build/push-view.js'
+            }
+        },
+        uglify: {
+            dist: {
+                options: {
+                    wrap: true
+                },
+                files: {
+                    'dist/push-view.min.js': ['build/push-view.js']
                 }
             }
         },
@@ -28,12 +56,19 @@ module.exports = function(grunt) {
             sass: {
                 files: 'src/**/*.scss',
                 tasks: ['sass:dev']
+            },
+            js: {
+                files: 'src/js/**/*.js',
+                tasks: ['concat:dev']
             }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('server', ['sass:dev', 'connect:dev', 'watch']);
+    grunt.registerTask('server', ['sass:dev', 'concat:dev', 'connect:dev', 'watch']);
+    grunt.registerTask('build', ['sass:dist', 'concat:dev', 'uglify:dist']);
 }
