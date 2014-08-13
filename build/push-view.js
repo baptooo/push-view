@@ -23,15 +23,15 @@ function transitionEndEventName () {
             var _t = this;
             if(config) {
                 if(config.elt) {
-                    b = elt;
+                    b = config.elt;
                 }
                 if(config.prefix) {
-                    c = cPrefix;
+                    c = config.prefix;
                 }
                 if(config.pushState == undefined) {
                     canPushState = false;
                 } else {
-                    canPushState = pushState;
+                    canPushState = config.pushState;
                 }
             }
 
