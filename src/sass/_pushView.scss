@@ -1,6 +1,7 @@
 // Auto defining pushViewPrefix var if no exists
 $pushViewPrefix: if(variable_exists('pushViewPrefix'), $pushViewPrefix, 'push');
-@media screen and (max-width: if(variable_exists('pushViewMaxWidth'), $pushViewMaxWidth, 768px)) {
+$pushViewMaxWidth: if(variable_exists('pushViewMaxWidth'), $pushViewMaxWidth, 768px);
+@media screen and (max-width: $pushViewMaxWidth) {
 
   @mixin push-prefixed-prop($property, $rule) {
     @each $vendor in -webkit -moz {
