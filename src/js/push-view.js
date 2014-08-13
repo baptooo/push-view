@@ -1,24 +1,32 @@
 (function(exp, b, c, s) {
-    var opened, canPushState = /^f/.test(history.pushState);
+    var opened, canPushState = /^f/.test(history.pushState), cb;
 
     exp.$pushView = {
-        init: function(elt, cPrefix, pushState) {
+        init: function(config) {
             var _t = this;
-            if(elt) {
-                b = elt;
-            }
-            if(cPrefix) {
-                c = cPrefix;
-            }
-            if(pushState == undefined) {
-                canPushState = false;
-            } else {
-                canPushState = pushState;
+            if(config) {
+                if(config.elt) {
+                    b = elt;
+                }
+                if(config.prefix) {
+                    c = cPrefix;
+                }
+                if(config.pushState == undefined) {
+                    canPushState = false;
+                } else {
+                    canPushState = pushState;
+                }
+                if(config.callback) {
+                    cb = config.callback;
+                }
             }
 
             b.classList.add(c + '-container');
             b.addEventListener(transitionEndEventName(), function() {
                 b.classList.remove(c + '-container--animating');
+                if(cb) {
+                    cb(opened);
+                }
             });
 
             if(canPushState) {
