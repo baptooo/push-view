@@ -1,7 +1,6 @@
+// Auto defining pushViewPrefix var if no exists
+$pushViewPrefix: if(variable_exists('$pushViewPrefix'), $pushViewPrefix, 'push');
 @media screen and (max-width: if(variable_exists('$pushViewMaxWidth'), $pushViewMaxWidth, 768px)) {
-  // Auto defining pushViewPrefix var if no exists
-  $pushViewPrefix: if(variable_exists('$pushViewPrefix'), $pushViewPrefix, 'push');
-
   .#{$pushViewPrefix} {
     &-container {
       &--animating {
