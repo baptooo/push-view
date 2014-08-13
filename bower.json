@@ -24,7 +24,6 @@
     "tests"
   ],
   "dependencies": {
-    "bourbon": "7e6e3f22d14641a787f021e985781bff4edf9627",
     "normalize-css": "~2.1.3"
   }
 }

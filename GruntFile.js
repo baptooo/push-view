@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                     sourcemap: true
                 },
                 files: {
-                    'build/push-view.css': 'src/pushView.scss'
+                    'build/push-view.css': 'src/main.scss'
                 }
             },
             dist: {
@@ -16,7 +16,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'dist/push-view.min.css': 'src/pushView.scss'
+                    'dist/push-view.min.css': 'src/main.scss'
                 }
             }
         },

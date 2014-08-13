@@ -1,8 +1,3 @@
-@import 'sass/settings';
-@import 'sass/utils/mixins';
-
-// Vendors
-@import 'bourbon/dist/bourbon';
-
-
-@import 'sass/components/pushView';
+$pushViewPrefix: 'push';
+$pushViewMaxWidth: 1024px;
+@import 'sass/pushView';
