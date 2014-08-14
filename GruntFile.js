@@ -59,6 +59,22 @@ module.exports = function(grunt) {
                 files: 'src/js/**/*.js',
                 tasks: ['concat:dev']
             }
+        },
+        karma: {
+            unit: {
+                options: {
+                    files: [
+                        'src/js/**/*.js',
+                        'tests/unit/**/*.js'
+                    ],
+                    frameworks: ['jasmine'],
+                    basePath: ''
+                },
+                runnerPort: 9999,
+                singleRun: true,
+                browsers: ['PhantomJS'],
+                logLevel: 'ERROR'
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -66,6 +82,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.registerTask('server', ['sass:dev', 'concat:dev', 'connect:dev', 'watch']);
     grunt.registerTask('build', ['sass:dist', 'concat:dev', 'uglify:dist']);
