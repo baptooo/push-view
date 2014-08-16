@@ -62,18 +62,12 @@ module.exports = function(grunt) {
         },
         karma: {
             unit: {
-                options: {
-                    files: [
-                        'src/js/**/*.js',
-                        'tests/unit/**/*.js'
-                    ],
-                    frameworks: ['jasmine'],
-                    basePath: ''
-                },
-                runnerPort: 9999,
-                singleRun: true,
-                browsers: ['PhantomJS'],
-                logLevel: 'ERROR'
+                configFile: 'karma.conf.js'
+            },
+            debug: {
+                configFile: 'karma.conf.js',
+                singleRun: false,
+                autoWatch: true
             }
         }
     });
@@ -84,6 +78,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-karma');
 
+    // Server debug
     grunt.registerTask('server', ['sass:dev', 'concat:dev', 'connect:dev', 'watch']);
+
+    // Build generation command
     grunt.registerTask('build', ['sass:dist', 'concat:dev', 'uglify:dist']);
+    // Dist build & tests (pre-commit)
+    grunt.registerTask('dist', ['build', 'karma:unit']);
+
+    // Tests debugMode
+    grunt.registerTask('test', ['build', 'karma:debug']);
 }

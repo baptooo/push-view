@@ -16,7 +16,10 @@ function transitionEndEventName () {
     }
 }
 (function(exp, b, c, s) {
-    var opened, canPushState = /^f/.test(history.pushState), cb;
+    var opened,
+        canPushState = /^f/.test(history.pushState),
+        cb,
+        hasPushState = false;
 
     exp.$pushView = {
         init: function(config) {
@@ -28,10 +31,8 @@ function transitionEndEventName () {
                 if(config.prefix) {
                     c = config.prefix;
                 }
-                if(config.pushState == undefined) {
-                    canPushState = false;
-                } else {
-                    canPushState = config.pushState;
+                if(config.pushState && canPushState) {
+                    hasPushState = config.pushState;
                 }
             }
 
@@ -43,7 +44,7 @@ function transitionEndEventName () {
                 }
             });
 
-            if(canPushState) {
+            if(hasPushState) {
                 window.onpopstate = function () {
                     if(opened) _t.close();
                 };
@@ -53,7 +54,8 @@ function transitionEndEventName () {
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.add(c + '-container--opened');
-            if(canPushState) {
+
+            if(hasPushState) {
                 history.pushState(s, null, null);
             }
 
@@ -63,7 +65,7 @@ function transitionEndEventName () {
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.remove(c + '-container--opened');
-            if(canPushState && history.state === s) {
+            if(hasPushState && history.state === s) {
                 history.back();
             }
 

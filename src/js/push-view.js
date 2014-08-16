@@ -1,5 +1,8 @@
 (function(exp, b, c, s) {
-    var opened, canPushState = /^f/.test(history.pushState), cb;
+    var opened,
+        canPushState = /^f/.test(history.pushState),
+        cb,
+        hasPushState = false;
 
     exp.$pushView = {
         init: function(config) {
@@ -11,10 +14,8 @@
                 if(config.prefix) {
                     c = config.prefix;
                 }
-                if(config.pushState == undefined) {
-                    canPushState = false;
-                } else {
-                    canPushState = config.pushState;
+                if(config.pushState && canPushState) {
+                    hasPushState = config.pushState;
                 }
             }
 
@@ -26,7 +27,7 @@
                 }
             });
 
-            if(canPushState) {
+            if(hasPushState) {
                 window.onpopstate = function () {
                     if(opened) _t.close();
                 };
@@ -36,7 +37,8 @@
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.add(c + '-container--opened');
-            if(canPushState) {
+
+            if(hasPushState) {
                 history.pushState(s, null, null);
             }
 
@@ -46,7 +48,7 @@
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.remove(c + '-container--opened');
-            if(canPushState && history.state === s) {
+            if(hasPushState && history.state === s) {
                 history.back();
             }
 
