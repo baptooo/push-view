@@ -8,6 +8,7 @@ $pushViewMaxWidth: if(variable_exists('pushViewMaxWidth'), $pushViewMaxWidth, 76
       $r: if(nth($rule, 1) == 'transform', #{$vendor}-$rule, $rule);
       #{$vendor}-#{$property}: $r;
     }
+    $property: $rule;
   }
 
   .#{$pushViewPrefix} {

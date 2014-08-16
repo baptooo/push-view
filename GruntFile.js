@@ -59,6 +59,16 @@ module.exports = function(grunt) {
                 files: 'src/js/**/*.js',
                 tasks: ['concat:dev']
             }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            },
+            debug: {
+                configFile: 'karma.conf.js',
+                singleRun: false,
+                autoWatch: true
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -66,7 +76,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-karma');
 
+    // Server debug
     grunt.registerTask('server', ['sass:dev', 'concat:dev', 'connect:dev', 'watch']);
+
+    // Build generation command
     grunt.registerTask('build', ['sass:dist', 'concat:dev', 'uglify:dist']);
+    // Dist build & tests (pre-commit)
+    grunt.registerTask('dist', ['build', 'karma:unit']);
+
+    // Tests debugMode
+    grunt.registerTask('test', ['build', 'karma:debug']);
 }
