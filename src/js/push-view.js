@@ -1,12 +1,18 @@
 (function(exp, b, c, s) {
     var opened,
         canPushState = /^f/.test(history.pushState),
+        isSupported = b.classList && transitionEndEventName(),
         cb,
         hasPushState = false;
 
     exp.$pushView = {
         init: function(config) {
             var _t = this;
+
+            if(!isSupported) {
+                return false;
+            }
+
             if(config) {
                 if(config.elt) {
                     b = config.elt;
@@ -34,6 +40,11 @@
             }
         },
         open: function(callback) {
+            if(!isSupported) {
+                if(callback) callback();
+                return false;
+            }
+
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.add(c + '-container--opened');
@@ -45,6 +56,11 @@
             opened = true;
         },
         close: function(callback) {
+            if(!isSupported) {
+                if(callback) callback();
+                return false;
+            }
+
             cb = callback;
             b.classList.add(c + '-container--animating');
             b.classList.remove(c + '-container--opened');
