@@ -1,7 +1,7 @@
 # Push View
 A generic mobile push view layout.
 
-# Requirements
+## Requirements
 
 Ruby 2.0 and more. (for windows: [http://rubyinstaller.org](http://rubyinstaller.org/))
 
@@ -9,7 +9,7 @@ Sass 3.3 minimum if you want to compile the stylesheet yourself.
 
 `gem install sass`
 
-# Structure and options
+## Structure and options
 
 ### dist/
 contains the minified and ready-to-use files for production
@@ -27,7 +27,7 @@ contains the compiled files before minification for development and debugging. T
 ### src/
 contains the source files of the project, javascript and Sass (scss) files.
 
-# Support
+## Support
 
 TODO (actually every device that supports css transitions/transform properties)
 
@@ -55,7 +55,7 @@ Firstly you have to know than there is 2 different way to install "push-view".
 
     `sass src/myProject.scss myProject.css :load_paths bower_components/ src/mySassFiles/`
     
-# Configuration
+## Configuration
 
 You will have to use the Sass File integration method to be able to configure the plugin as wished.
 
@@ -117,7 +117,7 @@ You will have to use the Sass File integration method to be able to configure th
     
     3. is just to be able to use the back button of your device to close the push-view when opened. Of course,     by default it is disabled because you will may need a clean pushState for your web application.
     
-# Usage
+## Usage
 
 After having created your css files and initialized the plugin, it will be ready to use immediatly.
 Just use the 2 methods "open" and "close" to toggle the push-view:
