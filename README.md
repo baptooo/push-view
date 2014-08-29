@@ -37,7 +37,8 @@ Firstly you have to know than there is 2 different way to install "push-view".
 
 1. Whithout prefix customization
 
-    Simply, you will just need to inject the dist/ files into your page. There is no restriction of position into     the page, you can add the ressources in the `<head />` as well as in the `<body />`
+    Simply, you will just need to inject the dist/ files into your page. There is no restriction of position into
+    the page, you can add the ressources in the `<head />` as well as in the `<body />`
 
     ```
     <link rel="stylesheet" type="text/css" href="bower_components/push-view/dist/push-view.min.css" />
@@ -46,9 +47,11 @@ Firstly you have to know than there is 2 different way to install "push-view".
 
 2. With Sass file
 
-    As you may know, there is an option in sass called :load_paths, which allows you to specify path(s) that will     be searched for by Sass when calling the @import directive.
+    As you may know, there is an option in sass called :load_paths which allows you to specify path(s) that will
+    be used by Sass for searching your ressources when calling the @import directive.
 
-    So, I recommend you to use this option and add a path to your bower_components/ directory in order to @import     the _push-view.scss file into your project and being able to customize the plugin.
+    So, I recommend you to use this option and add a path to your bower_components/ directory in order to @import
+    the _push-view.scss file into your project and being able to customize the plugin.
 
     `sass src/myProject.scss myProject.css :load_paths bower_components/ src/mySassFiles/`
     
