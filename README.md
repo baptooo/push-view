@@ -36,7 +36,7 @@ TODO (actually every device that supports css transitions/transform properties)
 This is not a registered bower component yet but it will become soon. At the moment you can install it via
 bower with direct git https url:
 
-    `bower install https://github.com/baptooo/push-view.git --save`
+    bower install https://github.com/baptooo/push-view.git --save
 
 # Integration
 
