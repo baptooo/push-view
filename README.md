@@ -9,6 +9,12 @@ Sass 3.3 minimum if you want to compile the stylesheet yourself.
 
 `gem install sass`
 
+## Compatibility
+
+| Android Browsers | IOS Safari | Chrome (Android) | Firefox  | IE    |
+| :--------------: | :--------: | :--------------: | :------: | :---: |
+| 2.1+             | 3.2+       | 4+               | 4+       | 10    |
+
 ## Structure and options
 
 ### dist/
@@ -27,20 +33,14 @@ contains the compiled files before minification for development and debugging. T
 ### src/
 contains the source files of the project, javascript and Sass (scss) files.
 
-# Compatibility
-
-| Android Browsers | IOS Safari | Chrome (Android) | Firefox  | IE    |
-| :--------------: | :--------: | :--------------: | :------: | :---: |
-| 2.1+             | 3.2+       | 4+               | 4+       | 10    |
-
-# Installation
+## Installation
 
 This is not a registered bower component yet but it will become soon. At the moment you can install it via
 bower with direct git https url:
 
     bower install https://github.com/baptooo/push-view.git --save
 
-# Integration
+## Integration
 
 Firstly you have to know than there is 2 different way to install "push-view".
 
@@ -64,7 +64,7 @@ Firstly you have to know than there is 2 different way to install "push-view".
 
     `sass src/myProject.scss myProject.css :load_paths bower_components/ src/mySassFiles/`
     
-# Configuration
+## Configuration
 
 You will have to use the Sass File integration method to be able to configure the plugin as wished.
 
@@ -126,7 +126,7 @@ You will have to use the Sass File integration method to be able to configure th
     
     3. is just to be able to use the back button of your device to close the push-view when opened. Of course,     by default it is disabled because you will may need a clean pushState for your web application.
     
-# Usage
+## Usage
 
 After having created your css files and initialized the plugin, it will be ready to use immediatly.
 Just use the 2 methods "open" and "close" to toggle the push-view:
