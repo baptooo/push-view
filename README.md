@@ -29,7 +29,9 @@ contains the source files of the project, javascript and Sass (scss) files.
 
 # Compatibility
 
-TODO (actually every device that supports css transitions/transform properties)
+| Android Browsers | IOS Safari | Chrome (Android) | Firefox  | IE    |
+| :--------------: | :--------: | :--------------: | :------: | :---: |
+| 2.1+             | 3.2+       | 4+               | 4+       | 10    |
 
 # Installation
 
