@@ -27,9 +27,16 @@ contains the compiled files before minification for development and debugging. T
 ### src/
 contains the source files of the project, javascript and Sass (scss) files.
 
-## Support
+# Compatibility
 
 TODO (actually every device that supports css transitions/transform properties)
+
+# Installation
+
+This is not a registered bower component yet but it will become soon. At the moment you can install it via
+bower with direct git https url:
+
+    `bower install https://github.com/baptooo/push-view.git --save`
 
 # Integration
 
@@ -51,11 +58,11 @@ Firstly you have to know than there is 2 different way to install "push-view".
     be used by Sass for searching your ressources when calling the @import directive.
 
     So, I recommend you to use this option and add a path to your bower_components/ directory in order to @import
-    the _push-view.scss file into your project and being able to customize the plugin.
+    the _push-view.scss file into your project instead of extracting it manually from bower.
 
     `sass src/myProject.scss myProject.css :load_paths bower_components/ src/mySassFiles/`
     
-## Configuration
+# Configuration
 
 You will have to use the Sass File integration method to be able to configure the plugin as wished.
 
@@ -78,7 +85,7 @@ You will have to use the Sass File integration method to be able to configure th
         
     result:
     
-        ```css
+        ```
         @media screen and (max-width: 1024px) {
             .my-project-container--animating {
                 /* ... */
@@ -117,7 +124,7 @@ You will have to use the Sass File integration method to be able to configure th
     
     3. is just to be able to use the back button of your device to close the push-view when opened. Of course,     by default it is disabled because you will may need a clean pushState for your web application.
     
-## Usage
+# Usage
 
 After having created your css files and initialized the plugin, it will be ready to use immediatly.
 Just use the 2 methods "open" and "close" to toggle the push-view:
