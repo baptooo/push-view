@@ -26,8 +26,10 @@
             }
 
             b.classList.add(c + '-container');
+
             b.addEventListener(transitionEndEventName(), function(evt) {
-                if(evt.target === b) {
+                // Confirm the target is pushView container (b)
+                if(evt.target.classList.contains(c + '-container--animating')) {
                     b.classList.remove(c + '-container--animating');
                     if(cb) {
                         cb();
