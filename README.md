@@ -87,13 +87,11 @@ You will have to use the Sass File integration method to be able to configure th
         
     result:
     
-        ```
         @media screen and (max-width: 1024px) {
             .my-project-container--animating {
                 /* ... */
             }
         }
-        ```
     
 2. Javascript
     
