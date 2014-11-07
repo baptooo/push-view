@@ -26,6 +26,10 @@ $pushViewMaxWidth: if(variable_exists('pushViewMaxWidth'), $pushViewMaxWidth, 76
         z-index: -1;
       }
 
+      &--closing {
+        @include push-prefixed-prop(transform, translate3d(0,0,0));
+      }
+
       &--animating, &--opened {
         .#{$pushViewPrefix}-view, .#{$pushViewPrefix}-view--custom {
           display: block;

@@ -10,6 +10,9 @@
     height: 100%;
     width: 100%;
     z-index: -1; }
+  .push-container--closing {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0); }
   .push-container--animating .push-view, .push-container--animating .push-view--custom, .push-container--opened .push-view, .push-container--opened .push-view--custom {
     display: block; }
   .push-view {
