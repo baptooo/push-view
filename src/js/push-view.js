@@ -26,10 +26,12 @@
             }
 
             b.classList.add(c + '-container');
-            b.addEventListener(transitionEndEventName(), function() {
-                b.classList.remove(c + '-container--animating');
-                if(cb) {
-                    cb();
+            b.addEventListener(transitionEndEventName(), function(evt) {
+                if(evt.target === b) {
+                    b.classList.remove(c + '-container--animating');
+                    if(cb) {
+                        cb();
+                    }
                 }
             });
 
