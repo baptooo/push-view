@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css"/>
     <link rel="stylesheet" href="build/push-view.css"/>
     <title>Mobile Push module</title>
+    <style type="text/css">
+        .animated-list li {
+            transition: opacity .5s ease-in-out;
+        }
+
+        .animated-list li:hover {
+            opacity: .5;
+        }
+    </style>
 </head>
 <body>
     <div class="push-view">
@@ -14,7 +23,7 @@
         </div>
         <h1>Ceci est la push view</h1>
         <img src="//lorempixel.com/150/150" alt=""/>
-        <ul>
+        <ul class="animated-list">
             <li>Item de liste</li>
             <li>Item de liste</li>
             <li>Item de liste</li>
