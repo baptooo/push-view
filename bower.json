@@ -6,7 +6,10 @@
     "Baptiste Rios-Campo <baptiste.rios@gmail.com>"
   ],
   "description": "A generic push view module",
-  "main": "index.html",
+  "main": [
+    "dist/push-view.min.js",
+    "dist/push-view.min.css"
+  ],
   "moduleType": [
     "node"
   ],
@@ -20,9 +23,7 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
-  ],
-  "dependencies": {
-    "normalize-css": "~2.1.3"
-  }
+    "tests",
+    "tasks"
+  ]
 }
